@@ -10,29 +10,29 @@
 
 
 ##    DDL (Data Definition Language)
-Create 
-Drop
-Alter 
-Truncate
+    Create 
+    Drop
+    Alter 
+    Truncate
 
 
 ##   DML (Data Manipulation Language)
-Insert
-Select
-Update
-Delete
-Merge
+    Insert
+    Select
+    Update
+    Delete
+    Merge
 
 ##    DCL (Data Control Language)
-Grant
-Revoke
+    Grant
+    Revoke
 
 ##    TCL (Transection Control Language)
-Commit
-Rollback
+    Commit
+    Rollback
 
     mysql -u root -p
-    
+
     show databases;
     create database db_users;
     use db_users;
