@@ -90,4 +90,15 @@
 
     drop table new_user;
 
+    create table user(id int not null unique,name varchar(25) not null,age int not null check (age>18) ,gender varchar(20) default 'M');
+
+    insert into user (id,name,age) value (1,'shehran',19);
+    insert into user (id,name,age) value (2,'zaki',19);
+
+    select * from user;
+     
+    insert into user (id,name,age,gender) value (3,'neha',20,'F');
+    
+    select * from user;
+
 
