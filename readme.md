@@ -72,4 +72,22 @@
 
     select * from tbl_user;
 
+    alter table tbl_user change column name user_name varchar(50);
+
+    show columns from tbl_user;
+
+    alter table tbl_user add column gender varchar(25);
+
+    alter table tbl_user drop column age;
+    
+    alter table tbl_user RENAME new_user;
+
+    show columns from tbl_user;
+
+    select * from new_user;
+
+    TRUNCATE new_user;
+
+    drop table new_user;
+
 
