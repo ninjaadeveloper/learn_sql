@@ -133,4 +133,42 @@
     insert into users (name,email) values ('huma','huma@gmail.com');
     select * from users;
 
+    create database school;
+
+    use school;
+    show tables;
+
+    create table courses (id int primary key auto_increment,course_name varchar(25) not null);
+    show columns from courses;
+
+    create table students(id int auto_increment primary key,name varchar(50) not null,courseId int not null,FOREIGN KEY (courseId) REFERENCES courses(id));
+
+    show columns from students;
+
+    insert into courses(course_name) values ('HTML');
+    insert into courses(course_name) values ('CSS');
+    insert into courses(course_name) values ('JS');
+
+    select * from courses;
+
+    insert into students(name,courseId) values ('Hammad',1);
+    insert into students(name,courseId) values ('Hamza',5);
+
+    select * from students;
+
+    insert into students(name,courseId) values ('Zaki',1);
+    insert into students(name,courseId) values ('Affan',3);
+    insert into students(name,courseId) values ('Mudassir',3);
+    
+    select * from students;
+
+    delete from courses where id=1;
+    delete from courses where id=2;
+
+    delete from students where id=6;
+    select * from students;
+    delete from courses where id=2;
+
+
+
 
