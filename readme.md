@@ -31,6 +31,9 @@
     Commit
     Rollback
 
+
+##  Queries
+
     mysql -u root -p
 
     show databases;
@@ -100,5 +103,34 @@
     insert into user (id,name,age,gender) value (3,'neha',20,'F');
     
     select * from user;
+
+    create table users(id int not null AUTO_INCREMENT,name varchar(50) not null ,email varchar(50) unique not null,PRIMARY KEY (id));
+
+    show columns from users;
+
+    insert into users (name,email) values ('asad','asad@gmail.com');
+
+    select * from users;
+
+    insert into users (name,email) values ('zaki','zaki@gmail.com');\
+    insert into users (name,email) values ('affan','affan@gmail.com');
+
+    select * from users;
+
+    delete from users where id=1;
+    
+    select * from users;
+
+    insert into users (name,email) values ('asad','asad@gmail.com');
+    select * from users;
+
+    insert into users (name,email) values ('hamza','muhammadhamza@gmail.com');
+    select * from users;
+
+    delete from users where id=4;
+    select * from users;
+
+    insert into users (name,email) values ('huma','huma@gmail.com');
+    select * from users;
 
 
