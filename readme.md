@@ -169,6 +169,10 @@
     select * from students;
     delete from courses where id=2;
 
+    SELECT * FROM students JOIN courses on students.courseId = courses.id;
+    SELECT students.name,courses.course_name FROM students JOIN courses on students.courseId = courses.id;
+
+
 
 
 
