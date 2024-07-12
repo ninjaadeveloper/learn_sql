@@ -172,6 +172,32 @@
     SELECT * FROM students JOIN courses on students.courseId = courses.id;
     SELECT students.name,courses.course_name FROM students JOIN courses on students.courseId = courses.id;
 
+    CREATE TABLE cities(id int AUTO_INCREMENT PRIMARY KEY,city_name varchar(25) NOT NULL UNIQUE);
+    
+    INSERT into cities (city_name) VALUES ('Karachi'), ('Lahore'),('Islamabad')
+    SELECT * from cities;
+
+    ALTER TABLE students ADD COLUMN (cityId int,FOREIGN KEY (cityId) REFERENCES cities(id));
+
+    UPDATE students set cityId=3 WHERE students.id = 8;
+
+    SELECT * from students 
+    JOIN courses on students.courseId = courses.id 
+    JOIN cities on students.cityId = cities.id;
+
+    SELECT * from students 
+    LEFT JOIN courses on students.courseId = courses.id
+    LEFT JOIN cities on students.cityId = cities.id;
+
+    SELECT * from students 
+    RIGHT JOIN courses on students.courseId = courses.id
+    RIGHT JOIN cities on students.cityId = cities.id;
+
+    SELECT * from students 
+    CROSS JOIN courses on students.courseId = courses.id
+    CROSS JOIN cities on students.cityId = cities.id;
+
+
 
 
 
