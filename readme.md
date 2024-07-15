@@ -197,6 +197,17 @@
     CROSS JOIN courses on students.courseId = courses.id
     CROSS JOIN cities on students.cityId = cities.id;
 
+    SELECT students.name,courses.course_name from students JOIN courses on students.courseId = courses.id WHERE courses.course_name = 'HTML';
+
+    SELECT students.name,courses.course_name,cities.city_name from students JOIN courses on students.courseId = courses.id JOIN cities on students.cityId = cities.id WHERE courses.course_name = "JS" AND cities.city_name = "Islamabad";
+
+    SELECT students.name,courses.course_name,cities.city_name from students JOIN courses on students.courseId = courses.id JOIN cities on students.cityId = cities.id WHERE courses.course_name = "JS" OR cities.city_name = "Islamabad";
+
+    SELECT students.name,courses.course_name,cities.city_name from students 
+    JOIN courses on students.courseId = courses.id
+    JOIN cities on students.cityId = cities.id
+    WHERE NOT courses.course_name = "HTML";
+
 
 
 
