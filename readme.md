@@ -227,6 +227,34 @@
 
     SELECT * FROM users WHERE age BETWEEN 17 AND 22;
 
+    SELECT * FROM `users` WHERE name LIKE "a%"; (start)
+
+    SELECT * FROM `users` WHERE name LIKE "%a"; (end)
+
+    SELECT * FROM `users` WHERE name LIKE "%n"; (end)
+
+    SELECT * FROM `users` WHERE name LIKE "%ff%";
+
+    SELECT * FROM `users` WHERE name LIKE "%ra%";
+
+    SELECT * FROM `users` WHERE city LIKE "%h%";
+
+    SELECT * FROM `users` WHERE name LIKE "Z%i";
+
+    SELECT * FROM `users` WHERE name LIKE "_a%"; (2nd posoition)
+
+    SELECT * FROM `users` WHERE name LIKE "__a%"; (3rd posoition)
+
+    SELECT * FROM `users` WHERE name LIKE "%a__";
+
+    SELECT * FROM `users` WHERE name LIKE "__fa%";
+
+    SELECT * FROM `users` ORDER by name DESC;
+
+    SELECT * FROM `users` ORDER by name ASC;
+
+    SELECT name,salary FROM `users` ORDER by salary DESC;
+
 
 
 
