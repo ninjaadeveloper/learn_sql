@@ -209,6 +209,24 @@
     WHERE NOT courses.course_name = "HTML";
 
 
+    INSERT INTO users (name,email,age,salary,city) VALUES
+    ('Zaki','zaki@gmail.com',23,50000,'Karachi'),
+    ('Bilal','bilal@gmail.com',18,22000,'Hyderabad'),
+    ('Affan','ali@gmail.com',22,19000,'Lahore'),
+    ('Yawar','yawar@gmail.com',24,30000,'Karachi'),
+    ('Daniyal','daniyal@gmail.com',19,25000,'Sukkar'),
+    ('Shehran','shehran@gmail.com',20,22000,'Sanghar'),
+    ('Mudassir','mudassir@gmail.com',20,100000,'Multan'),
+    ('Waqar','waqar@gmail.com',20,20000,'Islamabad'),
+    ('hamza','hamza@gmail.com',20,25000,'Karachi'),
+    ('usama','usama@gmail.com',20,10000,'Karachi')
+
+    SELECT * FROM `users` WHERE city IN ('Lahore','Karachi','Sanghar','Multan');
+    
+    SELECT * FROM users WHERE salary BETWEEN 15000 AND 20000;
+
+    SELECT * FROM users WHERE age BETWEEN 17 AND 22;
+
 
 
 
