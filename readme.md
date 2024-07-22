@@ -267,13 +267,33 @@
 
     CALL getUsers(); 
 
-    CALL getSignleUser(5);
-    
+
 
     CREATE PROCEDURE getSingleUsers(userId INT)
     BEGIN
     SELECT * from users where id = userId ;
-    END $$
+    END $$ 
+
+
+    CALL getSingleUsers(5);
+
+    DELIMITER $$
+    CREATE PROCEDURE insertUser(
+            myname VARCHAR(50),
+            myemail VARCHAR(25),
+            myage INT,
+            mysalary INT,
+            mycity VARCHAR(25)
+            )
+    BEGIN
+    INSERT INTO users (users.name,users.email,users.age,users.salary,users.city) VALUES (myname,myemail,myage,mysalary,mycity);
+    END$$
+
+    DELIMITER ;
+
+    CALL insertUser('Neha','neha@gmail.com',20,25000,'Karachi');
+
+
 
 
 
