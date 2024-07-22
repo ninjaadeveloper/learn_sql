@@ -256,6 +256,18 @@
     SELECT name,salary FROM `users` ORDER by salary DESC;
 
 
+    DELIMITER $$
+
+    CREATE PROCEDURE getUsers()
+    BEGIN
+    SELECT * from users;
+    END $$
+
+    DELIMITER ;
+
+    CALL getUsers();
+
+
 
 
 
