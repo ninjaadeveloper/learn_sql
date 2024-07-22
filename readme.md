@@ -265,7 +265,15 @@
 
     DELIMITER ;
 
-    CALL getUsers();
+    CALL getUsers(); 
+
+    CALL getSignleUser(5);
+    
+
+    CREATE PROCEDURE getSingleUsers(userId INT)
+    BEGIN
+    SELECT * from users where id = userId ;
+    END $$
 
 
 
