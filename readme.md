@@ -312,8 +312,24 @@
     SELECT AVG(salary) FROM users;
 
     SELECT round(20.22144412);
+    SELECT POWER(5,2);
 
     SELECT round(AVG(salary)) FROM users;
+
+    SELECT name,SUM(salary) FROM users GROUP BY city HAVING city IN ('Lahore','Karachi','Islamabad');
+
+    SELECT * from students WHERE cityId IN (SELECT id from cities WHERE city_name = 'Karachi');
+
+    SELECT * from students WHERE cityId IN (SELECT id from cities WHERE city_name = 'Lahore');
+
+    SHOW INDEX from users;
+
+    ALTER TABLE users DROP INDEX email;
+
+    CREATE INDEX city on users(city);
+
+    SHOW INDEX from users;  
+
 
 
 
