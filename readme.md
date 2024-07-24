@@ -293,6 +293,29 @@
 
     CALL insertUser('Neha','neha@gmail.com',20,25000,'Karachi');
 
+    SELECT DISTINCT(CITY) FROM users;
+
+    SELECT DISTINCT(age) FROM users;
+
+    SELECT name,city FROM users GROUP BY city;
+
+    SELECT name,city,age FROM users GROUP BY city;
+
+    SELECT name,city,age FROM users GROUP BY age;
+
+    SELECT MIN(salary) FROM users;
+
+    SELECT MAX(salary) FROM users;
+
+    SELECT SUM(salary) FROM users;
+
+    SELECT AVG(salary) FROM users;
+
+    SELECT round(20.22144412);
+
+    SELECT round(AVG(salary)) FROM users;
+
+
 
 
 
