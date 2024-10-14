@@ -330,6 +330,112 @@
 
     SHOW INDEX from users;  
 
+    CREATE table products(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    name varchar(125),
+    price int
+    );
+
+    CREATE table product_backup(
+    id int,
+    name varchar(125),
+    price int,
+    action varchar(100),
+    action_time datetime    
+    );
+
+
+    ------- AfterUpdate ---------
+
+    DELIMITER $$
+
+    CREATE TRIGGER after_update_products 
+    AFTER UPDATE ON products 
+    FOR EACH ROW
+    BEGIN 
+
+    INSERT into product_backup (product_backup.id,product_backup.name,product_backup.price,product_backup.action,product_backup.action_time) VALUES (old.id,old.name,old.price,'OLDDATA',CURRENT_TIMESTAMP());
+
+    INSERT into product_backup (product_backup.id,product_backup.name,product_backup.price,product_backup.action,product_backup.action_time) VALUES (new.id,new.name,new.price,'UPDATEDDATA',CURRENT_TIMESTAMP()); 
+
+    END $$
+    DELIMITER ;
+
+
+    INSERT INTO `products`(`name`, `price`) VALUES ('I-Phone',20000),('Samsung',10000);
+    UPDATE `products` SET `price`=50000 WHERE id = 1
+
+    CREATE user 'rizwan'@'localhost' IDENTIFIED by '1234';
+    mysql -u rizwan -p
+    
+    GRANT SELECT PRIVILEGES ON db_crud.users TO 'rizwan'@'localhost';
+    GRANT UPDATE PRIVILEGES ON db_crud.users TO 'rizwan'@'localhost';
+    GRANT DELETE PRIVILEGES ON db_crud.users TO 'rizwan'@'localhost';
+
+    GRANT ALL PRIVILEGES ON db_crud.users TO 'rizwan'@'localhost';
+    GRANT ALL PRIVILEGES ON db_crud.* TO 'rizwan'@'localhost';
+    GRANT ALL PRIVILEGES ON *.* TO 'rizwan'@'localhost';
+
+    SHOW GRANTS FOR 'rizwan'@'localhost';
+
+    REVOKE ALL ON db_crud.users from 'rizwan'@'localhost';
+    REVOKE ALL ON db_crud.* from 'rizwan'@'localhost';
+    REVOKE ALL ON *.* from 'rizwan'@'localhost';
+
+    DROP USER 'rizwan'@'localhost';
+
+    GRANT ALL PRIVILEGES ON 'rizwan'@'%';
+
+    FLUSH PRIVILEGES;
+
+    ALTER USER 'rizwan'@'localhost' IDENTIFIED BY '12345';
+
+
+    START TRANSACTION;
+
+    INSERT INTO new_user (username,user_email) values('RIZWAN','RIZWAN@GMAIL.COM');
+    UPDATE
+    DELETE 
+
+    ROLLBACK;
+
+    INSERT INTO new_user (username,user_email) values('SALMAN','SALMAN@GMAIL.COM');
+
+    COMMIT;
+
+    SAVEPOINT option1;
+    SAVEPOINT option2;
+
+    ROLLBACK TO option1;
+
+
+    DELIMITER //
+    CREATE FUNCTION intro_message() 
+    RETURNS VARCHAR(100)
+    BEGIN
+        RETURN 'WELCOME SIR';
+    END//
+    DELIMITER ;
+
+    SELECT intro_message();
+
+
+    DELIMITER //
+    CREATE FUNCTION get_birth(dob date) 
+    RETURNS int
+    BEGIN
+    DECLARE today date;
+    SELECT	CURRENT_DATE into today;
+        RETURN year(today) - year(dob);
+    END//
+    DELIMITER ;
+
+    SELECT get_birth('2000-02-21') AS age;
+
+    show FUNCTION STATUS where db = "db_crud";
+
+    DROP FUNCTION get_birth;
+
 
 
 
