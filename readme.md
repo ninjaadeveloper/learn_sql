@@ -324,9 +324,12 @@
 
     SHOW INDEX from users;
 
+    CREATE INDEX city on users(city);
+
     ALTER TABLE users DROP INDEX email;
 
-    CREATE INDEX city on users(city);
+    explain SELECT * FROM `users` WHERE user_email = 'sami@gmail.com';
+    CREATE INDEX newEmail on new_user(user_email);
 
     SHOW INDEX from users;  
 
